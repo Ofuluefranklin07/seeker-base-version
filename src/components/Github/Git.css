@@ -1,0 +1,25 @@
+.git-card {
+  width: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.git-card img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.git-card a {
+  color: #60a5fa;
+  text-decoration: none;
+}
