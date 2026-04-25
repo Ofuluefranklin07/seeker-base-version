@@ -25,7 +25,7 @@ export default function SeekerV2() {
       <header className="app-header">
         <div className="header-content">
           <GraduationCap size={32} className="header-icon" />
-          <h1>Course Explorer</h1>
+          <h1 style = {{ color: 'white' }}>Course Explorer</h1>
           <p>Discover your academic journey</p>
         </div>
       </header>

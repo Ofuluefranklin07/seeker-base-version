@@ -1,90 +1,77 @@
-/* Reset and base styles */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
 }
 
+/* ROOT COLORS */
+:root {
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --accent: #6366f1;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --bg: #020617;
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* APP CONTAINER */
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #333;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--text);
 }
 
-/* Header Styles */
+/* HEADER */
 .app-header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
 }
 
 .header-icon {
-  color: #667eea;
-  margin-bottom: 1rem;
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
 .app-header h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .app-header p {
-  font-size: 1.1rem;
-  color: #718096;
-  font-weight: 400;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-/* Main Content */
+/* MAIN */
 .main-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 30px 16px;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* Controls Section */
-.controls-section {
-  margin-bottom: 2rem;
-}
-
+/* TOGGLE */
 .toggle-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .toggle-label {
   display: flex;
   align-items: center;
+  gap: 10px;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #4a5568;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.toggle-label:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .toggle-input {
@@ -92,254 +79,164 @@
 }
 
 .toggle-slider {
-  position: relative;
-  width: 50px;
+  width: 44px;
   height: 24px;
-  background: #cbd5e0;
-  border-radius: 24px;
-  margin-right: 12px;
-  transition: background-color 0.3s ease;
+  background: #334155;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
 }
 
 .toggle-slider::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: white;
   border-radius: 50%;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  top: 3px;
+  left: 4px;
+  transition: 0.3s;
 }
 
 .toggle-input:checked + .toggle-slider {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: var(--accent);
 }
 
 .toggle-input:checked + .toggle-slider::before {
-  transform: translateX(26px);
+  transform: translateX(20px);
 }
 
 .toggle-text {
-  user-select: none;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
-/* Accordion Container */
+/* ACCORDION */
 .accordion-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 14px;
 }
 
-/* Accordion Item */
+/* ITEM */
 .accordion-item {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  background: var(--card);
   backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  transition: 0.3s ease;
 }
 
-.accordion-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-/* Accordion Header */
+/* HEADER */
 .accordion-header {
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.accordion-header.active {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-  border-bottom-color: rgba(102, 126, 234, 0.2);
+  transition: 0.3s;
 }
 
 .accordion-header:hover {
-  background: rgba(102, 126, 234, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
+.accordion-header.active {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+/* COURSE INFO */
 .course-info {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .course-code {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 0.25rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .course-title {
-  font-size: 1rem;
-  color: #718096;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
+/* RIGHT */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
 }
 
 .course-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
 .credits {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #48bb78;
-  background: rgba(72, 187, 120, 0.1);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  gap: 4px;
 }
 
+/* CHEVRON */
 .chevron-icon {
-  color: #a0aec0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .chevron-icon.rotated {
   transform: rotate(180deg);
-  color: #667eea;
 }
 
-/* Accordion Content */
+/* CONTENT */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  background: rgba(255, 255, 255, 0.98);
+  transition: all 0.4s ease;
 }
 
 .accordion-content.expanded {
-  max-height: 500px;
-  padding: 0 2rem 2rem;
+  max-height: 300px;
 }
 
+/* INNER CONTENT */
 .content-inner {
-  padding-top: 1.5rem;
+  padding: 16px;
+  border-top: 1px solid var(--border);
 }
 
 .faculty-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  gap: 6px;
+  font-size: 0.75rem;
+  background: rgba(99, 102, 241, 0.2);
+  color: #c7d2fe;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .course-description {
-  line-height: 1.7;
-  color: #4a5568;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e2e8f0;
 }
 
-/* No Data State */
+/* NO DATA */
 .no-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
   text-align: center;
-}
-
-.no-data svg {
-  color: #a0aec0;
-  margin-bottom: 1rem;
+  padding: 60px 20px;
+  color: var(--muted);
 }
 
 .no-data h3 {
-  font-size: 1.5rem;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
+  margin-top: 10px;
 }
 
 .no-data p {
-  color: #718096;
-  font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .main-content {
-    padding: 1rem;
-  }
-
-  .app-header h1 {
-    font-size: 2rem;
-  }
-
-  .accordion-header {
-    padding: 1rem 1.5rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .header-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .accordion-content.expanded {
-    padding: 0 1.5rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-content {
-    padding: 0 1rem;
-  }
-
-  .app-header h1 {
-    font-size: 1.75rem;
-  }
-
-  .toggle-label {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .accordion-header {
-    padding: 1rem;
-  }
-
-  .course-code {
-    font-size: 1.1rem;
-  }
-
-  .course-title {
-    font-size: 0.9rem;
-  }
+  font-size: 0.85rem;
+  margin-top: 6px;
 }
