@@ -51,7 +51,8 @@
 
 // }
 
-import Index from './components/Accordion project/Index'
+import SeekerV2 from './components/Accordion project/SeekerV2'
+import Index from './components/Color project/index'
 export default function App (){
-  return (<><Index/></>)
+  return (<><SeekerV2/></>)
 }
